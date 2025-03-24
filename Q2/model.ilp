@@ -1,0 +1,13 @@
+\ Model VRPTW_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Minimize
+ 
+Subject To
+ R15: 0.0001 x[2,3,0] + time[2] - time[3] <= -41.9999
+ R18: 0.0001 x[3,2,0] - time[2] + time[3] <= -41.9999
+Bounds
+ time[2] free
+ time[3] free
+Binaries
+ x[2,3,0] x[3,2,0]
+End
