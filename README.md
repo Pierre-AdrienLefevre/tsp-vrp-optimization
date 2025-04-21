@@ -1,6 +1,14 @@
 # Optimisation de Routage de Véhicules et Problème du Voyageur de Commerce
 # Vehicle Routing Optimization and Traveling Salesman Problem
 
+![Licence MIT](https://img.shields.io/badge/Licence-MIT-yellow.svg)
+![Python](https://img.shields.io/badge/Python-3.12+-blue.svg)
+![Status](https://img.shields.io/badge/Status-Completed-green.svg)
+![NumPy](https://img.shields.io/badge/NumPy-Supported-blue.svg)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Supported-blue.svg)
+![Optimisation](https://img.shields.io/badge/Optimisation-TSP%20%7C%20VRP-brightgreen.svg)
+![Algorithmes](https://img.shields.io/badge/Algorithmes-Heuristiques%20%7C%20Métaheuristiques-orange.svg)
+
 <details>
 <summary>🇫🇷 Version Française (cliquez pour déplier)</summary>
 
