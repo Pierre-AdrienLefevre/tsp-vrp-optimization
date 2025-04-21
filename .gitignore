@@ -10,7 +10,10 @@ wheels/
 .venv
 Archive.zip
 
-SYS817 Devoir 1.docx
+Rapport.docx
 
-.idea
+.idea/
+
 uv.lock
+Enoncé Devoirs.pdf
+Rapport.pdf

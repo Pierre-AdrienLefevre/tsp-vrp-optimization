@@ -1,9 +1,9 @@
 [project]
-name = "devoir-1"
+name = ""
 version = "0.1.0"
-description = "Add your description here"
+description = "tsp-vrp-optimization"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "alns>=7.0.0",
     "gurobipy>=12.0.1",
