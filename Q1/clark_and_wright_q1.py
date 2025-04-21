@@ -22,7 +22,7 @@ from verypy.util import routes2sol, objf
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from LireFichierTSP import read_TSPLIB_CVRP
+from TSPFile_reader import read_TSPLIB_CVRP
 from verypy.config import CAPACITY_EPSILON as C_EPS
 from verypy.config import COST_EPSILON as S_EPS
 import time

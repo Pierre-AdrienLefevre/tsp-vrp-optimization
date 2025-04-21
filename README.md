@@ -1,8 +1,13 @@
 # Optimisation de Routage de Véhicules et Problème du Voyageur de Commerce
+# Vehicle Routing Optimization and Traveling Salesman Problem
 
-Ce dépôt contient les implémentations et analyses de différents algorithmes d'optimisation pour le problème du voyageur de commerce (TSP) et le problème de routage de véhicules (VRP). Ce travail a été réalisé dans le cadre d'un cours.
+[English version below](#english-version)
 
-## Organisation du Projet
+## Version Française
+
+Ce dépôt contient les implémentations et analyses de différents algorithmes d'optimisation pour le problème du voyageur de commerce (TSP) et le problème de routage de véhicules (VRP). Ce travail a été réalisé dans le cadre du cours SYS817 - Systèmes de distribution et de transport intelligents à l'École de technologie supérieure.
+
+### Organisation du Projet
 
 ```
 .
@@ -38,9 +43,9 @@ Ce dépôt contient les implémentations et analyses de différents algorithmes 
     └── *.sol                          # Solutions de référence
 ```
 
-## Implémentations d'Algorithmes
+### Implémentations d'Algorithmes
 
-### Question 1: Heuristiques de Base
+#### Question 1: Heuristiques de Base
 
 - **Clark & Wright**: Algorithme d'épargne pour le VRP
 - **Plus Proche Voisin**: Construction itérative basée sur la proximité
@@ -49,7 +54,7 @@ Ce dépôt contient les implémentations et analyses de différents algorithmes 
 - **Minimisation du Coût d'Insertion**: Insertion basée sur le coût minimal
 - **Double Tree**: Basé sur un arbre couvrant minimum
 
-### Question 2: Heuristiques Avancées
+#### Question 2: Heuristiques Avancées
 
 - **2-OPT**: Amélioration locale par échange de 2 arêtes
 - **3-OPT**: Amélioration locale par échange de 3 arêtes
@@ -61,22 +66,22 @@ Tests et comparaisons effectués sur des instances de:
 - 150 villes
 - 1037 villes
 
-### Question 3: Variantes du VRP
+#### Question 3: Variantes du VRP
 
 - **CVRPTW**: Problème de tournées de véhicules avec fenêtres temporelles
   - Formulation mathématique
   - Implémentation avec solveur (Gurobi/CPLEX)
 
-### Question 4: Métaheuristiques Avancées
+#### Question 4: Métaheuristiques Avancées
 
 - **ALNS**: Adaptive Large Neighborhood Search
   - Implémentation de base
   - Version améliorée avec Slack Induction by Substring Removal (SISR)
   - Tests sur des instances de 32, 242 et 1001 villes
 
-## Résultats Notables
+### Résultats Notables
 
-### Comparaison des Performances (Q1)
+#### Comparaison des Performances (Q1)
 
 | Algorithme | Distance (10 villes) |
 |------------|-------------|
@@ -87,7 +92,7 @@ Tests et comparaisons effectués sur des instances de:
 | Insertion la Plus Éloignée | 144.65 |
 | Double Tree | 156.88 |
 
-### Performance de l'ALNS (Q4)
+#### Performance de l'ALNS (Q4)
 
 | Instance | ALNS Simple | ALNS avec SISR | Optimal | Écart SISR/Optimal |
 |----------|-------------|----------------|---------|-------------------|
@@ -95,7 +100,7 @@ Tests et comparaisons effectués sur des instances de:
 | 242 villes | 132156 (+6.8%) | 127459 | 123750 | +3.0% |
 | 1001 villes | 83384 (+15%) | 82987 | 72355 | +14.7% |
 
-## Conclusion
+### Conclusion
 
 Les résultats montrent que:
 
@@ -104,7 +109,7 @@ Les résultats montrent que:
 3. Pour les grandes instances, les métaheuristiques comme l'ALNS sont efficaces, particulièrement avec des mécanismes avancés comme SISR.
 4. La performance des algorithmes diminue avec l'augmentation de la taille du problème, suggérant la nécessité d'ajustements spécifiques pour les grands jeux de données.
 
-## Références
+### Références
 
 - [1] OpenAI. (2024). ChatGPT : OpenAI ChatGPT model documentation.
 - [2] Ruthmair, M. (2024). VRP GitHub Repository.
@@ -112,4 +117,119 @@ Les résultats montrent que:
 
 ---
 
-Auteur: Pierre-Adrien Lefèvre
+<a name="english-version"></a>
+## English Version
+
+This repository contains implementations and analyses of various optimization algorithms for the Traveling Salesman Problem (TSP) and Vehicle Routing Problem (VRP). This work was carried out as part of the SYS817 - Intelligent Distribution and Transportation Systems course at École de technologie supérieure.
+
+### Project Organization
+
+```
+.
+├── Q1/                                # Basic TSP implementations
+│   ├── Clark_and_Wright_Q1.py         # Clark & Wright algorithm
+│   ├── Double Tree.py                 # Double Tree algorithm
+│   ├── Le plus Rapproché.py           # Nearest neighbor algorithm
+│   ├── Le plus éloigné.py             # Farthest insertion algorithm
+│   ├── LireFichierTSP.py              # TSP file reader utility
+│   ├── Minimisé le cout d'insertion.py # Minimum insertion cost
+│   ├── Plus proche voisins Devoir.py  # Nearest neighbor variant
+│   └── creation_graph.py              # Visualization utility
+│
+├── Q2/                                # Advanced TSP heuristics
+│   ├── 2-OPT.py                       # 2-OPT local improvement
+│   ├── 3-OPT.py                       # 3-OPT local improvement
+│   ├── Clark_and_Wright_Q2.py         # C&W with improvements
+│   ├── Le_plus_éloigné_Q2.py          # Improved farthest insertion
+│   ├── Plus_proche_voisins_Q2.py      # Improved nearest neighbor
+│   ├── Recruit_Simulé.py              # Simulated annealing
+│   ├── Tabu.py                        # Tabu search
+│   ├── Q2_1.tsp, Q2_2.tsp, Q2_3.tsp   # Test instances
+│   └── pyCombinatorial 11Test.ipynb   # Tests and evaluations
+│
+├── Q3/                                # VRP variants
+│   ├── Modèle CVRPTW.py               # CVRP with time windows model
+│   └── model.ilp                      # Linear programming model
+│
+└── Q4/                                # Metaheuristics for CVRP
+    ├── ALNS.py                        # Adaptive Large Neighborhood Search
+    ├── Greedy.py                      # Greedy construction
+    ├── A-n32-k5.vrp, etc.             # Reference instances
+    └── *.sol                          # Reference solutions
+```
+
+### Algorithm Implementations
+
+#### Question 1: Basic Heuristics
+
+- **Clark & Wright**: Savings algorithm for VRP
+- **Nearest Neighbor**: Iterative construction based on proximity
+- **Nearest Insertion**: Insertion based on proximity
+- **Farthest Insertion**: Insertion based on maximum distance
+- **Minimum Insertion Cost**: Insertion based on minimum cost
+- **Double Tree**: Based on minimum spanning tree
+
+#### Question 2: Advanced Heuristics
+
+- **2-OPT**: Local improvement by exchanging 2 edges
+- **3-OPT**: Local improvement by exchanging 3 edges
+- **Tabu Search**: Metaheuristic with tabu list
+- **Simulated Annealing**: Metaheuristic based on cooling process
+
+Tests and comparisons performed on instances of:
+- 14 cities
+- 150 cities
+- 1037 cities
+
+#### Question 3: VRP Variants
+
+- **CVRPTW**: Capacitated Vehicle Routing Problem with Time Windows
+  - Mathematical formulation
+  - Implementation with solver (Gurobi/CPLEX)
+
+#### Question 4: Advanced Metaheuristics
+
+- **ALNS**: Adaptive Large Neighborhood Search
+  - Basic implementation
+  - Improved version with Slack Induction by Substring Removal (SISR)
+  - Tests on instances of 32, 242, and 1001 cities
+
+### Notable Results
+
+#### Performance Comparison (Q1)
+
+| Algorithm | Distance (10 cities) |
+|-----------|-------------|
+| Minimum Insertion Cost | 139.29 |
+| Nearest Neighbor | 139.59 |
+| Nearest Insertion | 140.65 |
+| Clark & Wright | 140.37 |
+| Farthest Insertion | 144.65 |
+| Double Tree | 156.88 |
+
+#### ALNS Performance (Q4)
+
+| Instance | Simple ALNS | ALNS with SISR | Optimal | Gap SISR/Optimal |
+|----------|-------------|----------------|---------|-------------------|
+| 32 cities | 873.88 (+11.5%) | 787.08 | 784 | +0.4% |
+| 242 cities | 132156 (+6.8%) | 127459 | 123750 | +3.0% |
+| 1001 cities | 83384 (+15%) | 82987 | 72355 | +14.7% |
+
+### Conclusion
+
+The results show that:
+
+1. For small instances, simple heuristics like minimum insertion cost and nearest neighbor offer good performance.
+2. Adding local search operators (2-OPT, 3-OPT) significantly improves solutions.
+3. For large instances, metaheuristics like ALNS are effective, particularly with advanced mechanisms like SISR.
+4. The performance of algorithms decreases as problem size increases, suggesting the need for specific adjustments for large datasets.
+
+### References
+
+- [1] OpenAI. (2024). ChatGPT: OpenAI ChatGPT model documentation.
+- [2] Ruthmair, M. (2024). VRP GitHub Repository.
+- [3] Wouda, N. (2024). ALNS GitHub Repository: Capacitated Vehicle Routing Problem Example.
+
+---
+
+Auteur/Author: Pierre-Adrien Lefèvre
